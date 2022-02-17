@@ -1,21 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// const elem = React.createElement('h1', null, 'Hello world!');
-class Clock extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
 
-    render() {
-        return (
-            <h1 className="heading">
-                <span className="text">
-                    Hello -{this.props.children} {new Date().toLocaleDateString()}
-                </span>
-            </h1>
-        );
-    }
+const index = 0;
+
+function Clock() {
+    return (
+        <h1 className="heading" tabIndex={index}>
+            <span className="text"> Hello {new Date().toLocaleTimeString()} </span>
+            <img alt="" src="" />
+        </h1>
+    );
 }
 
-ReactDOM.render(<Clock local="bn-BD"> test </Clock>, document.getElementById('root'));
+ReactDOM.render(<Clock />, document.getElementById('root'));
