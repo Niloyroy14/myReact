@@ -1,3 +1,10 @@
+
+import {
+    Navigate,
+    Route,
+    Routes
+} from "react-router-dom";
+
 import ClockList from './Components/ClockList';
 import Form from './Components/Form';
 import Calculator from './Components/Calculator';
@@ -20,6 +27,22 @@ import MyComponent from './MyComponent';
 import Title from './Components/Title';
 import Button2 from './Components/Button2';
 import ShowCount from './Components/ShowCount';
+import InputForm from './Components/Hooks/InputForm';
+import HookCounter from './Components/Hooks/Counter';
+import ComplexCounter from './Components/Hooks/ComplexCounter';
+import DoubleCounter from './Components/Hooks/DoubleCountmer';
+import CounterThree from './Components/Hooks/CounterThree';
+import ComponentA from './Components/Hooks/ComponentA';
+import GetPost from './Components/Hooks/GetPost';
+import GetPost2 from './Components/Hooks/GetPost2';
+import LayoutComponent from './Components/Hooks/LayoutComponent';
+import LayoutComponent2 from './Components/Hooks/LayoutComponent2';
+import About from './Components/About';
+import Home from './Components/Home';
+import Post from "./Components/Post";
+import Header from "./Components/Header";
+import Posts from "./Components/Posts";
+
 
 
 function App() {
@@ -51,7 +74,21 @@ function App() {
     },[count1]);
 
 
-    return <div>
+    return (
+        
+         <div>
+          <Header/>
+            <Routes>
+                <Route path="/" element={<Navigate to="/home" />}/>
+                <Route path="/home/*" element={<Home />} >
+                    <Route path="world" element={<p>This is Hello World</p>} />
+                </Route>
+                <Route path="/about" element={<About />} />
+                <Route path="/posts" element={<Posts />} />
+                <Route path="/posts/:postId" element={<Post />} />
+            </Routes>
+              
+    
         <ClockList quantities={quantities} />
         <Form />
         <Calculator />
@@ -91,9 +128,7 @@ function App() {
         <br />
         <br />
 
-
         <TodoCounter />
-
 
         <br />
         <br />
@@ -125,9 +160,60 @@ function App() {
         
         <ShowCount count={count2} title="Counter 2" />
         <Button2 handleClick={incrementByFive}>increment By Five</Button2>
+         
+        <br />
+        <br />
 
+        <InputForm />
         
-    </div>;
+        <br />
+        <br />
+
+        <HookCounter />
+        
+
+        <br />
+        <br />
+
+        <ComplexCounter />
+        
+        <br />
+        <br />
+
+        <DoubleCounter />
+        
+        <br />
+        <br />
+
+        <CounterThree />
+        
+
+        <br />
+        <br />
+
+        <ComponentA />
+        
+        <br />
+        <br />
+
+        <GetPost />
+        
+        <br />
+        <br />
+
+        <GetPost2 />
+
+        <br />
+        <br />
+
+        <LayoutComponent />
+        
+        <br />
+        <br />
+
+        <LayoutComponent2 />
+        
+    </div>);
 }
 
 export default App;
